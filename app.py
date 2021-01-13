@@ -34,6 +34,11 @@ def predict():
     user_input = [[input_plea, input_race, input_prior]]
 
     output = model.predict(user_input)
+    if output == '0':
+        output = 'No'
+    else:
+        output = 'Yes'
+    
     score = model.score(X_test, y_test)
     return render_template('index.html', prediction_text='1 for yes 0 for no: {}'.format(output), prediction_score='There is a {:.0%} chance'.format(score), plea_orc_list=plea_orc_list)
 
