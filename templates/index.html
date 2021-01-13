@@ -3,35 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Document</title>
 </head>
 <body>
-    <div class="login">
-        <h1>Prison Prediction</h1>
+    <div class="jumbotron container">
+        <h1 class="display-4 text-center mb-4">The Prison Predictor</h1>
 
-        <form action="{{ url_for('predict') }}" method="post">
-            <select name="plea_orc">
+        <form class="text-center" action="{{ url_for('predict') }}" method="post">
+            <h3 class="mb-2">Ohio Revised Code</h3>
+            <select name="plea_orc" class="form-select mb-3">
                 {% for plea in plea_orc_list %}
                     <option value= "{{plea}}" SELECTED>{{plea}}</option>"
                 {% endfor %}
             </select><br>
             <!-- Input race -->
-            <input type="radio" name="race" value="white">
+            <h3>Race</h3>
+            <input class="form-check-input" type="radio" name="race" value="white">
             <label for="male">White</label><br>
-            <input type="radio" name="race" value="black">
+            <input class="form-check-input" type="radio" name="race" value="black">
             <label for="female">Black</label><br>
-            <input type="radio" name="race" value="hispanic">
+            <input class="form-check-input" type="radio" name="race" value="hispanic">
             <label for="other">Hispanic</label><br>
-            <input type="radio" name="race" value="asian">
+            <input class="form-check-input" type="radio" name="race" value="asian">
             <label for="other">Asian</label><br>
-            <input type="radio" name="race" value="other">
+            <input class="form-check-input" type="radio" name="race" value="other">
             <label for="other">Other</label><br>
             <!-- End input race -->
-            <input type="text" name="prior_charges" placeholder="Prior Charges"/>
-
-            <button type="submit">Predict</button>
+            <h3>Prior Charges</h3>
+            <input class="mt-3" type="text" name="prior_charges" placeholder="Prior Charges"/>
+            <br>
+            <button type="submit" class="btn btn-primary mt-3">Predict</button>
         </form>
-
+        
         <br>
         <br>
         {{ prediction_text }}
