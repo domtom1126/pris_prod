@@ -38,4 +38,4 @@ def predict():
     return render_template('index.html', prediction_text='1 for yes 0 for no: {}'.format(output), prediction_score='There is a {:.0%} chance'.format(score), plea_orc_list=plea_orc_list)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
