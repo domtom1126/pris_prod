@@ -2,7 +2,7 @@ import numpy as np
 from flask import Flask, request, jsonify, render_template
 import pickle
 import joblib
-from pris import X_test, y_test, plea_list
+from pris import X_test, y_test, plea_list 
 
 model = joblib.load('model')
 
@@ -43,4 +43,4 @@ def predict():
     return render_template('index.html', prediction_text='Will I go to prison? {}'.format(output), prediction_score='With a {:.0%} chance'.format(score), plea_orc_list=plea_orc_list)
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run()
