@@ -8,6 +8,8 @@ from sklearn.model_selection import train_test_split
 
 df = pd.read_csv('to_pris.csv')
 plea_list = list(df['plea_orcs'].unique())
+plea_list.sort()
+print(plea_list)
 
 oe = LabelEncoder()
 oe2 = LabelEncoder()
